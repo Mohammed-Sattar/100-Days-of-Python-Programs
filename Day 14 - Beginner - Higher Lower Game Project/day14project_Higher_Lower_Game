@@ -1,0 +1,53 @@
+import art
+import game_data
+import os
+import random
+
+clear = lambda: os.system('cls') # clears the console on Windows System
+
+print(art.logo)
+    
+
+choice_A = random.choice(game_data.data)
+choice_B = {}
+score = 0
+
+def comparison_choice (choice_A, score, choice_B=""):
+    """Determines choice B that will be compared against choice A for each round of the Higher-Lower game."""
+    # Choice A is not determined inside this method because unlike B it's value is not redetermined every loop iteration.
+    choice_B = random.choice(game_data.data)
+    while choice_B == choice_A:
+        choice_B = random.choice(game_data.data)
+    # print(choice_A)
+    # print(choice_B)
+
+    print(f"Compare A: {choice_A['name']}, a {choice_A['description']}, from {choice_A['country']}.")
+    print(art.vs)
+    print(f"Against B: {choice_B['name']}, a {choice_B['description']}, from {choice_B['country']}")
+
+    user_guess(choice_A, choice_B, score)
+
+def user_guess (choice_A, choice_B, score):
+    """Takes the users guess for the Higher-Lower game, determines if its correct and continues accordingly"""
+    guess = input("Who has more followers? Type 'A' or 'B': ").upper()
+    
+    if guess == "A" and choice_A["follower_count"] > choice_B["follower_count"] or guess == "B" and choice_A["follower_count"]< choice_B["follower_count"]:
+        score += 1
+        choices_dict = {
+            "A": choice_A,
+            "B": choice_B
+        }
+        choice_A = choices_dict['B']
+        clear()
+        print(art.logo)
+        print(f"You're right! Current score: {score}")
+        comparison_choice (choice_A, score)
+    else:
+        clear()
+        print(art.logo)
+        print(f"Sorry, that's wrong. Final score: {score}")
+
+comparison_choice (choice_A, score)
+
+
+

@@ -46,7 +46,7 @@ screen = Screen()
 # Challenge 4 - Drawing a Random Walk
 # tim.pensize(10)
 tim.speed(0)
-tim.colormode(255) # change the mode to accept color range from 1 to 255
+screen.colormode(255) # change the mode to accept color range from 1 to 255
 
 # while True:
 #     tim.pencolor(randint(0,255), randint(0,255), randint(0,255))

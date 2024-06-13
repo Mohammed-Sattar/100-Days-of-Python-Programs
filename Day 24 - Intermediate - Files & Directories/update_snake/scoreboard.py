@@ -10,7 +10,7 @@ class Scoreboard(Turtle):
         self.score = 0
         self.high_score = 0 
 
-        with open(r"Day 24 - Intermediate -\update_snake\data.txt", mode="r") as file:
+        with open(r"Day 24 - Intermediate - Files & Directories/update_snake/data.txt", mode="r") as file:
             self.high_score = int(file.read())
 
         self.hideturtle()
@@ -28,7 +28,7 @@ class Scoreboard(Turtle):
         if (self.score > self.high_score):
             self.high_score = self.score
 
-            with open(r"Day 24 - Intermediate -\update_snake\data.txt", mode="w") as file:
+            with open(r"Day 24 - Intermediate - Files & Directories/update_snake/data.txt", mode="w") as file:
                 # file.write(str(self.high_score))
                 file.write(f"{self.high_score}") # using f-string instead of the previous string conversion
 

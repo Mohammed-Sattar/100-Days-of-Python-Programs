@@ -1,6 +1,6 @@
 import pandas
 
-nato_alphabet_data = pandas.read_csv(r"Day 26 - Intermediate - List & Dictionary Comprehensions\Day 26 Project - NATO Alphabet\nato_phonetic_alphabet.csv")
+nato_alphabet_data = pandas.read_csv(r"Day 26 - Intermediate - List & Dictionary Comprehensions/Day 26 Project - NATO Alphabet/nato_phonetic_alphabet.csv")
 
 
 # Keyword Method with iterrows()
@@ -14,5 +14,5 @@ nato_alphabet_dict = {row.letter:row.code for (index, row) in nato_alphabet_data
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 user_word = input("Enter a word: ").upper()
 
-word_nato_alphabet = [nato_alphabet_dict[letter] for letter in user_word]
+word_nato_alphabet = [nato_alphabet_dict[letter] for letter in user_word if letter in nato_alphabet_dict]
 print(word_nato_alphabet)
